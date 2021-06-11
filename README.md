@@ -8,8 +8,8 @@ OpenCV 학습 저장소
 
 ## 아나콘다 설치
 
-[설치 가이드](https://docs.anaconda.com/anaconda/install/linux/)
-[파일 경로](https://repo.anaconda.com/archive/)
+- [설치 가이드](https://docs.anaconda.com/anaconda/install/linux/)
+- [Archive 파일 url](https://repo.anaconda.com/archive/)
 ```bash
     wget https://repo.anaconda.com/archive/Anaconda3-5.3.1-Linux-x86_64.sh -O ~/Anaconda3-5.3.1-Linux-x86_64.sh
     bash ~/Anaconda3-5.3.1-Linux-x86_64.sh
