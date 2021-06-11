@@ -119,7 +119,7 @@ def main():
     # OpenCV로 이미지 로드 
     cv2_image_arr = load_image_by_cv2(image_path)
     
-    # 이미지 배열 색공간 순서 BGR로 변경
+    # 이미지 배열 색공간 순서 RGB로 변경
     cv2_rgb_image_arr = convert_channel(cv2_image_arr, flag=cv2.COLOR_BGR2RGB)
 
     # 이미지 배열을 파일로 저장
