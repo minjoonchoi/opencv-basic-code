@@ -1,5 +1,7 @@
-#%%
+
 import os
+import sys
+import argparse
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -84,7 +86,7 @@ def draw_polygon(image:np.array):
         thickness=5
         )
 
-def main():
+def draw():
     """이미지 배열에 좌표 기반 도형을 그리는 기본적인 내용을 다루는 스크립트
     """
     # 이미지 크기 및 색공간 채널 설정
@@ -118,8 +120,32 @@ def main():
     }
     show_image(image_dit)
 
-if __name__ == '__main__':
-    """파이썬 커맨드로 스크립트를 실행시킬 때만 실행되는 if 블럭
-    example : python 02-handle_polygon.py
-    """
-    main()
+
+#----------------------------------------------------------------------------
+
+def execute_cmdline(argv):
+    prog = argv[0]
+    parser = argparse.ArgumentParser(
+        prog        = prog,
+        description = 'Tool for manipulating images.',
+        epilog      = 'Type "%s <command> -h" for more information.' % prog)
+
+    subparsers = parser.add_subparsers(dest='command')
+    subparsers.required = True
+    def add_command(cmd, desc, example=None):
+        epilog = 'Example: %s %s' % (prog, example) if example is not None else None
+        return subparsers.add_parser(cmd, description=desc, help=desc, epilog=epilog)
+
+    p = add_command('draw', desc="Drawing various type of polygons like 'line', 'circle' and 'rectangle'")
+
+    args = parser.parse_args(argv[1:] if len(argv) > 1 else ['-h'])
+    func = globals()[args.command]
+    del args.command
+    func(**vars(args))
+
+#----------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    execute_cmdline(sys.argv)
+
+#----------------------------------------------------------------------------
