@@ -35,20 +35,51 @@ OpenCV 학습 저장소
     pip install numpy
 ```
 
-## 스크립트에서 확인할 수 있는 함수들
+## 예제 스크립트
 
 1. 01-handle_image.py
-    - load_image_by_pillow(path:str) : 이미지 파일을 PIL로 로드
-    - load_image_by_cv2(path:str) : 이미지 파일을 OpenCV로 로드
-    - save_image_by_cv2(path:str, image_arr:np.array) : 이미지 배열을 해당경로에 이미지파일로 저장
-    - convert_channel(image_arr, flag:int=cv2.COLOR_RGB2BGR) : 이미지 배열의 컬러 채널을 flag에 맞게 변경
-    - convert_pil_image_to_np_array(image:Image) : Image 객체를 Numpy 배열로 변경
-    - check_arr(image_arr:np.array) : 이미지 배열 color 채널 출력
-    - show_image(image_dict:dict) : 이미지 배열을 이미지로 확인
+```
+    usage: 01-handle_image.py [-h] {pillow_img,cv2_img} ...
+
+    Tool for manipulating images.
+
+    positional arguments:
+    {pillow_img,cv2_img}
+        pillow_img          Handling an image by using pillow
+        cv2_img             Handling an image by using opencv
+
+    optional arguments:
+    -h, --help            show this help message and exit
+```
 
 2. 02-handle_polygon.py
-    - show_image(image_dict:dict) : 이미지 배열을 이미지로 확인
-    - draw_line(image:np.array) : 배경 이미지에 선을 그림
-    - draw_circle(image:np.array) : 배경 이미지에 원을 그림
-    - draw_ellipse(image:np.array) : 배경 이미지에 타원을 그림
-    - draw_polygon(image:np.array) : 배경 이미지에 다각형을 그림
+```
+    usage: 02-handle_polygon.py [-h] {draw} ...
+
+    Tool for manipulating images.
+
+    positional arguments:
+    {draw}
+        draw      Drawing various type of polygons like 'line', 'circle' and 'rectangle'
+
+    optional arguments:
+    -h, --help  show this help message and exit
+```
+
+3. 03-process_image.py
+```
+    usage: 03-process_image.py [-h] {resize,warp_affine,rotate_and_warp_affine,flip} ...
+
+    Tool for manipulating images.
+
+    positional arguments:
+    {resize,warp_affine,rotate_and_warp_affine,flip}
+        resize              Resizing an image
+        warp_affine         Warpping an image
+        rotate_and_warp_affine
+                            Rotating and warpping an image
+        flip                Flipping an image
+
+    optional arguments:
+    -h, --help            show this help message and exit
+```
